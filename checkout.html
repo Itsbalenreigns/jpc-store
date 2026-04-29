@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | JPCStore - Premium Computer Hardware</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .checkout-container { max-width: 1300px; margin: 0 auto; padding: 2rem; }
+        .checkout-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 3rem; margin-top: 120px; }
+        .payment-box { background: var(--card-bg); padding: 2.5rem; border-radius: 18px; border: 1px solid var(--glass); }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-main); font-size: 0.95rem; }
+        .form-group input { width: 100%; padding: 1rem; background: var(--glass-strong); border: 1px solid var(--glass); color: var(--text-main); border-radius: 10px; outline: none; transition: var(--transition); font-family: inherit; font-size: 0.95rem; }
+        .form-group input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1); }
+        .form-group input::placeholder { color: var(--text-dimmer); }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .payment-box h2 { font-size: 1.8rem; font-weight: 900; margin-bottom: 2rem; color: var(--text-main); }
+        .payment-box h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 1.5rem; color: var(--text-main); }
+        .summary-box { position: sticky; top: 140px; }
+        .summary-box h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 1.5rem; }
+        .summary-item { display: flex; justify-content: space-between; padding: 1rem 0; border-bottom: 1px solid var(--glass); }
+        .summary-item:last-of-type { border-bottom: none; }
+        .summary-item p { color: var(--text-dim); }
+        .summary-total { padding: 1.5rem 0; display: flex; justify-content: space-between; font-size: 1.4rem; font-weight: 900; color: var(--primary); }
+        #invoice-result { display: none; background: white; color: black; padding: 3rem; border-radius: 18px; position: relative; }
+        #invoice-result h1 { color: var(--primary); font-size: 2rem; margin-bottom: 1rem; }
+        #invoice-result hr { margin: 1.5rem 0; border: none; border-top: 1px solid #e5e7eb; }
+        #invoice-result h2 { font-size: 1.5rem; color: var(--primary); }
+        .invoice-buttons { display: flex; gap: 1rem; margin-top: 2rem; }
+        .btn-fill { background: linear-gradient(135deg, var(--primary), #818cf8); color: white; padding: 1rem 2rem; border: none; border-radius: 10px; font-weight: 700; cursor: pointer; transition: var(--transition); width: 100%; font-size: 1rem; }
+        .btn-fill:hover { transform: scale(1.02); box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3); }
+        .btn-outline { background: transparent; color: #1f2937; padding: 1rem 2rem; border: 2px solid #1f2937; border-radius: 10px; font-weight: 700; cursor: pointer; transition: var(--transition); width: 100%; font-size: 1rem; }
+        .btn-outline:hover { background: #f3f4f6; }
+        hr { border: none; border-top: 1px solid var(--glass); }
+        @media (max-width: 768px) {
+            .checkout-grid { grid-template-columns: 1fr; gap: 2rem; margin-top: 100px; }
+            .summary-box { position: static; }
+            .form-row { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">JPC<span>STORE</span></a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#products">Products</a>
+            </nav>
+            <div class="nav-actions">
+                <div class="cart-icon" id="cartBtn" style="cursor: pointer;">
+                    <i class="fas fa-arrow-left"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="checkout-container">
+        <div class="checkout-grid">
+            <div id="payment-view" class="payment-box">
+                <h2>Order Details</h2>
+                <form id="checkoutForm">
+                    <h3>Shipping Information</h3>
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" placeholder="john@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Shipping Address</label>
+                        <input type="text" placeholder="123 Main St, City, State 12345" required>
+                    </div>
+
+                    <h3 style="margin-top: 2rem;">Payment Information</h3>
+                    <div class="form-group">
+                        <label>Card Number</label>
+                        <input type="text" placeholder="4532 1234 5678 9010" maxlength="19" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Expiration Date</label>
+                            <input type="text" placeholder="MM/YY" maxlength="5" required>
+                        </div>
+                        <div class="form-group">
+                            <label>CVV</label>
+                            <input type="text" placeholder="123" maxlength="3" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-fill" style="margin-top: 2rem;">Complete Payment</button>
+                </form>
+            </div>
+
+            <div>
+                <div id="invoice-result" class="payment-box">
+                    <div id="receiptContent">
+                        <div style="text-align: center; margin-bottom: 2rem;">
+                            <h1 style="color: var(--primary); font-size: 2.5rem; margin-bottom: 0.5rem;">JPCStore</h1>
+                            <p style="color: var(--text-dim);">Premium Computer Hardware & Accessories</p>
+                        </div>
+                        
+                        <div style="background: var(--glass-strong); padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem;">
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                                <div>
+                                    <p style="color: var(--text-dimmer); font-size: 0.85rem; margin-bottom: 0.3rem;">Order Number</p>
+                                    <p id="inv-id" style="color: var(--primary); font-weight: 900; font-size: 1.1rem;"></p>
+                                </div>
+                                <div style="text-align: right;">
+                                    <p style="color: var(--text-dimmer); font-size: 0.85rem; margin-bottom: 0.3rem;">Order Date</p>
+                                    <p id="inv-date" style="color: var(--text-main); font-weight: 700;"></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3 style="color: var(--text-main); margin-bottom: 1rem; font-weight: 800;">Order Items</h3>
+                        <div style="border: 1px solid var(--glass); border-radius: 10px; padding: 1.5rem; margin-bottom: 2rem;">
+                            <div id="inv-details" style="margin-bottom: 1rem;"></div>
+                            <div style="border-top: 1px solid var(--glass); padding-top: 1rem;">
+                                <div style="display: flex; justify-content: space-between; font-size: 0.95rem; margin-bottom: 0.5rem;">
+                                    <span style="color: var(--text-dim);">Subtotal:</span>
+                                    <span id="inv-subtotal" style="color: var(--text-main); font-weight: 700;"></span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; font-size: 0.95rem; margin-bottom: 1rem;">
+                                    <span style="color: var(--text-dim);">Tax (0%):</span>
+                                    <span style="color: var(--text-main); font-weight: 700;">$0.00</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; border-top: 2px solid var(--primary); padding-top: 1rem;">
+                                    <span id="inv-total-label" style="color: var(--text-main); font-weight: 900; font-size: 1.2rem;">Total Paid:</span>
+                                    <span id="inv-total" style="color: var(--primary); font-weight: 900; font-size: 1.2rem;"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="background: var(--glass-strong); padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem;">
+                            <h4 style="color: var(--text-main); margin-bottom: 1rem; font-weight: 800; font-size: 0.95rem;">Billing Information</h4>
+                            <div style="color: var(--text-dim); line-height: 1.8; font-size: 0.9rem;">
+                                <p id="inv-customer-name"></p>
+                                <p id="inv-customer-email"></p>
+                                <p id="inv-customer-address"></p>
+                            </div>
+                        </div>
+
+                        <div style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05)); border-left: 4px solid #10b981; padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem;">
+                            <p style="color: #10b981; font-weight: 700; margin-bottom: 0.5rem;">✓ Payment Successful!</p>
+                            <p style="color: var(--text-dim); font-size: 0.9rem;">Your order has been confirmed and will be shipped within 1-2 business days.</p>
+                        </div>
+
+                        <div style="text-align: center; padding-top: 1.5rem; border-top: 1px solid var(--glass); color: var(--text-dimmer); font-size: 0.85rem;">
+                            <p>Thank you for your purchase!</p>
+                            <p>For support, contact: support@jpcstore.com | Phone: +1 (800) 123-4567</p>
+                        </div>
+                    </div>
+
+                    <div class="invoice-buttons">
+                        <button onclick="downloadReceipt()" class="btn-fill"><i class="fas fa-download"></i> Download Receipt</button>
+                    </div>
+                    <button onclick="window.location.href='index.html'" class="btn-outline">Back to Shop</button>
+                </div>
+
+                <div class="summary-box payment-box">
+                    <h3>Order Summary</h3>
+                    <div id="summaryItems"></div>
+                    <hr>
+                    <div class="summary-total">
+                        <span>Total:</span>
+                        <span id="summaryTotal">$0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div>
+                <div class="logo">JPC<span>STORE</span></div>
+                <p>Premium computer hardware and accessories for professionals and enthusiasts.</p>
+            </div>
+            <div>
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Shipping Info</a></li>
+                    <li><a href="#">Returns</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Refund Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 JPCStore. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const cart = JSON.parse(localStorage.getItem('TECH_CART')) || [];
+        const total = cart.reduce((acc, i) => acc + (i.price * i.qty), 0);
+        let customerData = {};
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            // Hide loader
+            setTimeout(() => {
+                const loader = document.getElementById('loader');
+                loader.style.opacity = '0';
+                setTimeout(() => loader.style.display = 'none', 500);
+            }, 500);
+
+            // Update summary
+            document.getElementById('summaryTotal').innerText = `$${total.toLocaleString()}`;
+            document.getElementById('summaryItems').innerHTML = cart.map(i => `
+                <div class="summary-item">
+                    <div>
+                        <p><strong>${i.name}</strong></p>
+                        <p>Qty: ${i.qty}</p>
+                    </div>
+                    <p><strong>$${(i.price * i.qty).toLocaleString()}</strong></p>
+                </div>
+            `).join('');
+
+            // Handle checkout form
+            document.getElementById('checkoutForm').onsubmit = (e) => {
+                e.preventDefault();
+                const form = e.target;
+                const inputs = form.querySelectorAll('input');
+                
+                // Store customer data
+                customerData = {
+                    name: inputs[0].value,
+                    email: inputs[1].value,
+                    address: inputs[2].value,
+                    cardNumber: inputs[3].value
+                };
+                
+                const btn = form.querySelector('button');
+                btn.innerText = "Processing Payment...";
+                btn.disabled = true;
+                
+                setTimeout(() => {
+                    document.getElementById('payment-view').style.display = 'none';
+                    document.getElementById('invoice-result').style.display = 'block';
+                    
+                    const orderId = `ORD-${Date.now()}`;
+                    const orderDate = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+                    
+                    // Populate invoice
+                    document.getElementById('inv-id').innerHTML = `Order #${orderId}`;
+                    document.getElementById('inv-date').innerHTML = orderDate;
+                    
+                    document.getElementById('inv-details').innerHTML = cart.map(i => `
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 1px solid var(--glass);">
+                            <div>
+                                <p style="color: var(--text-main); font-weight: 700; margin-bottom: 0.3rem;">${i.name}</p>
+                                <p style="color: var(--text-dim); font-size: 0.85rem;">Qty: ${i.qty} @ $${i.price.toLocaleString()}</p>
+                            </div>
+                            <p style="color: var(--text-main); font-weight: 700; text-align: right;">$${(i.price * i.qty).toLocaleString()}</p>
+                        </div>
+                    `).join('');
+                    
+                    document.getElementById('inv-subtotal').innerHTML = `$${total.toLocaleString()}`;
+                    document.getElementById('inv-total').innerHTML = `$${total.toLocaleString()}`;
+                    document.getElementById('inv-customer-name').innerHTML = `<strong>${customerData.name}</strong>`;
+                    document.getElementById('inv-customer-email').innerHTML = customerData.email;
+                    document.getElementById('inv-customer-address').innerHTML = customerData.address;
+                    
+                    // Clear cart from localStorage
+                    localStorage.removeItem('TECH_CART');
+                    
+                    // Show success modal after 1 second
+                    setTimeout(() => {
+                        showSuccessModal(orderId, cart, total);
+                    }, 1000);
+                }, 2000);
+            };
+
+            // Back button
+            document.getElementById('cartBtn').onclick = () => {
+                window.history.back();
+            };
+        });
+
+        // Download Receipt as Text/PDF
+        function downloadReceipt() {
+            const orderId = document.getElementById('inv-id').innerText;
+            const receiptContent = document.getElementById('receiptContent').innerText;
+            
+            // Create text content
+            let textContent = `JPCStore - Order Receipt\n`;
+            textContent += `${'='.repeat(50)}\n\n`;
+            textContent += receiptContent + `\n\n`;
+            textContent += `${'='.repeat(50)}\n`;
+            textContent += `Downloaded on: ${new Date().toLocaleString()}\n`;
+            
+            // Create blob and download
+            const blob = new Blob([textContent], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `JPCStore-Receipt-${orderId.replace('#', '')}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(a);
+        }
+
+        // Success Modal Function
+        function showSuccessModal(orderId, cartItems, totalAmount) {
+            const overlay = document.createElement('div');
+            overlay.className = 'success-modal-overlay active';
+            overlay.style.cssText = `
+                position: fixed;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.8);
+                z-index: 2999;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            `;
+            
+            const modal = document.createElement('div');
+            modal.className = 'success-modal active';
+            modal.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: #0f172a;
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                border-radius: 20px;
+                padding: 3rem;
+                z-index: 3000;
+                text-align: center;
+                max-width: 500px;
+                width: 90%;
+                box-shadow: 0 30px 60px rgba(99, 102, 241, 0.3);
+                animation: popIn 0.5s ease;
+            `;
+            
+            modal.innerHTML = `
+                <div style="font-size: 4rem; color: #10b981; margin-bottom: 1.5rem; animation: bounce 0.6s ease;">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2 style="font-size: 2rem; font-weight: 900; margin-bottom: 1rem; color: #f8fafc;">Order Confirmed!</h2>
+                <p style="color: #94a3b8; font-size: 1rem; margin-bottom: 1rem; line-height: 1.6;">Thank you for your purchase. Your order is being processed and will be shipped soon.</p>
+                <div style="background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.03); padding: 1rem; border-radius: 10px; margin: 1.5rem 0; font-weight: 700; color: #6366f1; word-break: break-all;">
+                    ${orderId}
+                </div>
+                <p style="font-size: 0.9rem; color: #64748b;">
+                    A confirmation email has been sent to your email address with tracking information and receipt details.
+                </p>
+                <div style="display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap;">
+                    <button onclick="downloadReceipt()" style="flex: 1; min-width: 150px; padding: 0.9rem 1.5rem; background: linear-gradient(135deg, #10b981, #059669); color: white; border: none; border-radius: 10px; font-weight: 700; cursor: pointer; transition: all 0.4s; font-size: 0.95rem;"><i class="fas fa-download"></i> Download</button>
+                    <button onclick="window.location.href='index.html'" style="flex: 1; min-width: 150px; padding: 0.9rem 1.5rem; background: rgba(255, 255, 255, 0.08); color: #f8fafc; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 10px; font-weight: 700; cursor: pointer; transition: all 0.4s; font-size: 0.95rem;">Continue</button>
+                </div>
+            `;
+            
+            document.body.appendChild(overlay);
+            document.body.appendChild(modal);
+            document.body.style.overflow = 'hidden';
+            
+            // Close when clicking outside
+            overlay.onclick = () => {
+                overlay.remove();
+                modal.remove();
+                document.body.style.overflow = '';
+            };
+        }
+
+        // Add animations
+        const animStyle = document.createElement('style');
+        animStyle.textContent = `
+            @keyframes popIn {
+                from {
+                    transform: translate(-50%, -50%) scale(0.8);
+                    opacity: 0;
+                }
+                to {
+                    transform: translate(-50%, -50%) scale(1);
+                    opacity: 1;
+                }
+            }
+            @keyframes bounce {
+                0%, 100% { transform: scale(1); }
+                50% { transform: scale(1.2); }
+            }
+        `;
+        document.head.appendChild(animStyle);
+    </script>
+</body>
+</html>

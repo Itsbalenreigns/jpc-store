@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JPCStore | Premium Computer Hardware</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Loading Screen -->
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Header & Navigation start -->
+    <header id="navbar">
+        <div class="nav-container">
+            <div class="logo">JPC<span>STORE</span></div>
+            
+            <nav class="nav-links">
+                <a href="#home">Home</a>
+                
+                <div class="nav-dropdown">
+                    <a href="#products" onclick="filterCategory('laptop')">Laptops <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="#products" onclick="filterBrand('asus-laptop')">ASUS</a>
+                        <a href="#products" onclick="filterBrand('msi-laptop')">MSI</a>
+                        <a href="#products" onclick="filterBrand('razer-laptop')">Razer</a>
+                        <a href="#products" onclick="filterBrand('macbook-laptop')">MacBook</a>
+                        <a href="#products" onclick="filterBrand('dell-laptop')">Dell</a>
+                    </div>
+                </div>
+
+                <div class="nav-dropdown">
+                    <a href="#products" onclick="filterCategory('desktop')">Desktops <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="#products" onclick="filterBrand('asus-desktop')">ASUS</a>
+                        <a href="#products" onclick="filterBrand('msi-desktop')">MSI</a>
+                        <a href="#products" onclick="filterBrand('corsair-desktop')">Corsair</a>
+                        <a href="#products" onclick="filterBrand('nzxt-desktop')">NZXT</a>
+                        <a href="#products" onclick="filterBrand('alienware-desktop')">Alienware</a>
+                    </div>
+                </div>
+
+                <div class="nav-dropdown">
+                    <a href="#products" onclick="filterCategory('accessory')">Accessories <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="#products" onclick="filterBrand('logitech-accessory')">Logitech</a>
+                        <a href="#products" onclick="filterBrand('corsair-accessory')">Corsair</a>
+                        <a href="#products" onclick="filterBrand('steelseries-accessory')">SteelSeries</a>
+                        <a href="#products" onclick="filterBrand('razer-accessory')">Razer</a>
+                        <a href="#products" onclick="filterBrand('hyperx-accessory')">HyperX</a>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="nav-actions">
+                <div class="cart-icon" id="cartBtn" title="View Cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-count">0</span>
+                </div>
+                <a href="admin.html" class="admin-link" title="Admin Panel">
+                    <i class="fas fa-cogs"></i>
+                </a>
+                <div class="hamburger" id="hamburger" title="JPCStore">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-header">
+                <h3>Menu</h3>
+                <i class="fas fa-times" id="closeMobileMenu"></i>
+            </div>
+            <nav class="mobile-nav">
+                <a href="#home" onclick="closeMobileMenu()">Home</a>
+                
+                <div class="mobile-dropdown">
+                    <button onclick="toggleMobileDropdown(this)">
+                        Laptops <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="mobile-dropdown-menu">
+                        <a href="#products" onclick="filterBrand('asus-laptop'); closeMobileMenu()">ASUS</a>
+                        <a href="#products" onclick="filterBrand('msi-laptop'); closeMobileMenu()">MSI</a>
+                        <a href="#products" onclick="filterBrand('razer-laptop'); closeMobileMenu()">Razer</a>
+                        <a href="#products" onclick="filterBrand('macbook-laptop'); closeMobileMenu()">MacBook</a>
+                        <a href="#products" onclick="filterBrand('dell-laptop'); closeMobileMenu()">Dell</a>
+                    </div>
+                </div>
+
+                <div class="mobile-dropdown">
+                    <button onclick="toggleMobileDropdown(this)">
+                        Desktops <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="mobile-dropdown-menu">
+                        <a href="#products" onclick="filterBrand('asus-desktop'); closeMobileMenu()">ASUS</a>
+                        <a href="#products" onclick="filterBrand('msi-desktop'); closeMobileMenu()">MSI</a>
+                        <a href="#products" onclick="filterBrand('corsair-desktop'); closeMobileMenu()">Corsair</a>
+                        <a href="#products" onclick="filterBrand('nzxt-desktop'); closeMobileMenu()">NZXT</a>
+                        <a href="#products" onclick="filterBrand('alienware-desktop'); closeMobileMenu()">Alienware</a>
+                    </div>
+                </div>
+
+                <div class="mobile-dropdown">
+                    <button onclick="toggleMobileDropdown(this)">
+                        Accessories <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="mobile-dropdown-menu">
+                        <a href="#products" onclick="filterBrand('logitech-accessory'); closeMobileMenu()">Logitech</a>
+                        <a href="#products" onclick="filterBrand('corsair-accessory'); closeMobileMenu()">Corsair</a>
+                        <a href="#products" onclick="filterBrand('steelseries-accessory'); closeMobileMenu()">SteelSeries</a>
+                        <a href="#products" onclick="filterBrand('razer-accessory'); closeMobileMenu()">Razer</a>
+                        <a href="#products" onclick="filterBrand('hyperx-accessory'); closeMobileMenu()">HyperX</a>
+                    </div>
+                </div>
+
+                <hr style="border: none; border-top: 1px solid var(--glass); margin: 1rem 0;">
+                
+                <a href="#products" onclick="showAllProducts(); closeMobileMenu()">All Products</a>
+                <a href="#products" onclick="filterCategory('laptop'); closeMobileMenu()">Laptops</a>
+                <a href="#products" onclick="filterCategory('desktop'); closeMobileMenu()">Desktops</a>
+                <a href="#products" onclick="filterCategory('accessory'); closeMobileMenu()">Accessories</a>
+            </nav>
+        </div>
+        <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    </header>
+    <!-- Header & Navigation start -->
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="container search-container">
+            <div class="search-box search-box-hero">
+                <input type="text" id="searchInput" placeholder="Search products by name, price, or code..." title="Search by product name, price range (e.g., 100-500), or product code">
+                <i class="fas fa-search"></i>
+                <div class="search-suggestions" id="searchSuggestions"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Best Computer Deals 2026</h1>
+            <p>Upgrade your setup with next-gen performance and professional gaming gear.</p>
+            <a href="#products" class="btn-primary">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <!-- <section class="categories container">
+        <div class="category-card" onclick="filterCategory('laptop')">
+            <i class="fas fa-laptop"></i>
+            <h3>Laptops</h3>
+        </div>
+        <div class="category-card" onclick="filterCategory('desktop')">
+            <i class="fas fa-desktop"></i>
+            <h3>Desktops</h3>
+        </div>
+        <div class="category-card" onclick="filterCategory('accessory')">
+            <i class="fas fa-keyboard"></i>
+            <h3>Accessories</h3>
+        </div>
+    </section> -->
+
+    <!-- Products Section -->
+    <main class="container" id="products">
+        <div class="section-header">
+            <h2>Our Products</h2>
+            <div class="filters">
+                <button class="filter-btn active" onclick="showAllProducts()">All Products</button>
+                <button class="filter-btn" onclick="filterCategory('laptop')">Laptops</button>
+                <button class="filter-btn" onclick="filterCategory('desktop')">Desktops</button>
+                <button class="filter-btn" onclick="filterCategory('accessory')">Accessories</button>
+            </div>
+        </div>
+
+        <!-- All Products View -->
+        <div id="allProductsView">
+            <!-- Laptops Section -->
+            <div class="product-section">
+                <div class="section-title">
+                    <h3>Premium Laptops</h3>
+                    <p>High-performance computing on the go</p>
+                </div>
+                <div class="product-grid" id="laptopGrid">
+                    <!-- Laptops injected by JS -->
+                </div>
+            </div>
+
+            <!-- Desktops Section -->
+            <div class="product-section">
+                <div class="section-title">
+                    <h3>Powerful Desktops</h3>
+                    <p>Extreme performance for demanding tasks</p>
+                </div>
+                <div class="product-grid" id="desktopGrid">
+                    <!-- Desktops injected by JS -->
+                </div>
+            </div>
+
+            <!-- Accessories Section -->
+            <div class="product-section">
+                <div class="section-title">
+                    <h3>Premium Accessories</h3>
+                    <p>Enhance your computing experience</p>
+                </div>
+                <div class="product-grid" id="accessoryGrid">
+                    <!-- Accessories injected by JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Filtered View -->
+        <div id="filteredProductsView" style="display: none;">
+            <div class="product-grid" id="productGrid">
+                <!-- Filtered products injected by JS -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Promotion Banner -->
+    <section class="promo-banner">
+        <div class="promo-content">
+            <h2>Up to 30% OFF Gaming PCs</h2>
+            <p>Limited time offer on all RTX 50-series builds.</p>
+            <button class="btn-secondary">Claim Discount</button>
+        </div>
+    </section>
+
+    <!-- Product Details Modal -->
+    <div class="modal-overlay" id="productModal">
+        <div class="product-details-modal">
+            <button class="modal-close" id="closeProductModal">&times;</button>
+            <div class="product-details-content">
+                <div class="product-details-image">
+                    <img id="modalProductImage" src="" alt="">
+                </div>
+                <div class="product-details-info">
+                    <h2 id="modalProductName"></h2>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(127 reviews)</span>
+                    </div>
+                    <div class="product-price" id="modalProductPrice"></div>
+                    <div class="product-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">Category:</span>
+                            <span id="modalProductCategory"></span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Stock Status:</span>
+                            <span class="stock-badge">In Stock</span>
+                        </div>
+                    </div>
+                    <p class="product-description">High-performance computing solution designed for professionals and enthusiasts who demand the best. Features cutting-edge technology, premium build quality, and exceptional value.</p>
+                    <div class="product-specs">
+                        <h4>Key Specifications:</h4>
+                        <ul>
+                            <li>Premium Components</li>
+                            <li>Optimized Performance</li>
+                            <li>Professional Grade</li>
+                            <li>Lifetime Support</li>
+                            <li>Free Installation</li>
+                        </ul>
+                    </div>
+                    <div class="product-actions">
+                        <!-- <input type="number" id="productQuantity" value="1" min="1" max="10"> -->
+                         <div class="quantity-control">
+                            <button id="decreaseQty">−</button>
+                            <span id="productQuantity">1</span>
+                            <button id="increaseQty">+</button>
+                        </div>
+                        
+                        <button id="addToCartFromModal" class="btn-primary">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <i class="fas fa-times" id="closeCart"></i>
+        </div>
+        <div id="cart-items-container">
+            <!-- Cart items injected by JS -->
+        </div>
+        <div class="cart-footer">
+            <div class="total-price">
+                <span>Total:</span>
+                <span id="cart-total">$0</span>
+            </div>
+            <button class="btn-checkout" id="checkoutBtn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <button id="backToTop"><i class="fas fa-arrow-up"></i></button>
+
+    <div id="toast-container"></div>
+
+    <footer class="footer">
+        <div class="container footer-grid">
+            <!-- Column 1: About -->
+            <div class="footer-column">
+                <div class="logo">JPC<span>STORE</span></div>
+                <p>Premium computer hardware and accessories for professionals and enthusiasts. Quality guaranteed since 2020.</p>
+            </div>
+
+            <!-- Column 2: Quick Links -->
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Refund Policy</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Customer Support & Socials -->
+            <div class="footer-column">
+                <h4>Customer Support</h4>
+                <p>Email: support@jpcstore.com</p>
+                <p>Phone: +(855) 88-790-9897</p>
+                <p style="margin-bottom: 1.5rem;">Hours: Mon-Fri 9AM-6PM EST</p>
+                
+                <h4>Follow Us</h4>
+                <div class="socials">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-linkedin-in"></i>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 JPCStore. All rights reserved. Built with quality and expertise.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
