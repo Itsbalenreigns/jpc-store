@@ -89,6 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderAllProducts();
     updateCartUI();
     setupEventListeners();
+    initializeScrollAnimations();
     
     // Smooth Loader Fade
     setTimeout(() => {
@@ -181,9 +182,53 @@ function setupEventListeners() {
     
     // Close search suggestions when clicking outside
     document.addEventListener('click', (e) => {
-        if (!e.target.closest('.search-box')) {
+        if (!e.target.closest('.search-box') && !e.target.closest('.search-box-hero')) {
             document.getElementById('searchSuggestions').classList.remove('active');
         }
+    });
+}
+
+// ========== SCROLL ANIMATION INITIALIZATION ==========
+// Initialize scroll reveal animations for all elements
+function initializeScrollAnimations() {
+    // Create Intersection Observer for scroll animations
+    const observerOptions = {
+        threshold: 0.1, // Trigger when 10% of element is visible
+        rootMargin: '0px 0px -100px 0px' // Trigger slightly before element enters viewport
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                // Determine animation type based on element type
+                let animationClass = 'animate-fadeInUp'; // Default animation
+
+                if (entry.target.classList.contains('section-title')) {
+                    animationClass = 'animate-fadeInDown';
+                } else if (entry.target.classList.contains('product-card')) {
+                    animationClass = 'animate-scaleIn';
+                } else if (entry.target.classList.contains('filter-btn')) {
+                    animationClass = 'animate-slideUp';
+                } else if (entry.target.classList.contains('promo-banner')) {
+                    animationClass = 'animate-rotateIn';
+                }
+
+                // Apply animation class
+                entry.target.classList.add(animationClass);
+                
+                // Stop observing once animated
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Observe all elements that should animate
+    const elementsToAnimate = document.querySelectorAll(
+        '.product-section, .section-title, .product-card, .filter-btn, .promo-banner, .promo-content'
+    );
+
+    elementsToAnimate.forEach((element) => {
+        observer.observe(element);
     });
 }
 

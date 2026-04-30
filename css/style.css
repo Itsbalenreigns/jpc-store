@@ -26,6 +26,148 @@ body {
 
 .container { max-width: 1300px; margin: 0 auto; padding: 0 2rem; }
 
+/* ========== SCROLL REVEAL ANIMATIONS ========== */
+
+/* Fade In Up - Basic fade with upward movement */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fade In Down - Fade with downward movement */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fade In Left - Slide from left */
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Fade In Right - Slide from right */
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Scale In - Pop effect */
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Rotate In - Spinning effect */
+@keyframes rotateIn {
+    from {
+        opacity: 0;
+        transform: rotate(-10deg) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: rotate(0) scale(1);
+    }
+}
+
+/* Slide Up - Alternative to fade-in-up */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Bounce In - Playful bounce effect */
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Animation Classes - Applied on scroll */
+.animate-fadeInUp {
+    animation: fadeInUp 0.7s ease-out forwards;
+}
+
+.animate-fadeInDown {
+    animation: fadeInDown 0.7s ease-out forwards;
+}
+
+.animate-fadeInLeft {
+    animation: fadeInLeft 0.7s ease-out forwards;
+}
+
+.animate-fadeInRight {
+    animation: fadeInRight 0.7s ease-out forwards;
+}
+
+.animate-scaleIn {
+    animation: scaleIn 0.6s ease-out forwards;
+}
+
+.animate-rotateIn {
+    animation: rotateIn 0.7s ease-out forwards;
+}
+
+.animate-slideUp {
+    animation: slideUp 0.6s ease-out forwards;
+}
+
+.animate-bounceIn {
+    animation: bounceIn 0.7s ease-out forwards;
+}
+
+/* Initial state for elements waiting to be animated */
+.scroll-animation {
+    opacity: 0;
+}
+
 /* Loader */
 #loader {
     position: fixed; inset: 0; background: var(--bg-dark);
@@ -93,29 +235,26 @@ body {
     padding-left: 2rem;
 }
 .nav-actions { display: flex; gap: 1.5rem; align-items: center; }
-.search-box { position: relative; display: flex; align-items: center; }
-.search-box input { background: var(--glass-strong); border: 1px solid var(--glass); color: var(--text-main); padding: 0.7rem 1rem 0.7rem 1.3rem; border-radius: 8px; outline: none; transition: var(--transition); width: 200px; font-size: 0.9rem; }
-.search-box input::placeholder { color: var(--text-dimmer); }
-.search-box input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1); }
-.search-box i { position: absolute; right: 1rem; color: var(--text-dimmer); pointer-events: none; }
+.search-icon-mobile { display: none; font-size: 1.3rem; color: var(--text-main); cursor: pointer; transition: var(--transition); }
 .search-suggestions {
     position: absolute;
     top: 100%;
     left: 0;
     right: 0;
     background: var(--card-bg);
-    border: 1px solid var(--glass);
+    border: 1.5px solid var(--glass);
     border-top: none;
-    border-radius: 0 0 8px 8px;
-    max-height: 300px;
+    border-radius: 0 0 12px 12px;
+    max-height: 350px;
     overflow-y: auto;
     display: none;
     z-index: 1000;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    animation: slideDown 0.3s ease;
 }
 .search-suggestions.active { display: block; }
 .search-suggestion-item {
-    padding: 0.8rem 1rem;
+    padding: 1rem 1.2rem;
     color: var(--text-dim);
     cursor: pointer;
     border-bottom: 1px solid var(--glass);
@@ -123,20 +262,19 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    font-weight: 500;
 }
 .search-suggestion-item:hover {
-    background: var(--glass-strong);
+    background: rgba(99, 102, 241, 0.08);
     color: var(--primary);
-    padding-left: 1.3rem;
+    padding-left: 1.5rem;
+    border-left: 3px solid var(--primary);
+    padding-left: 1.2rem;
 }
 .search-suggestion-item:last-child { border-bottom: none; }
-.suggestion-price { color: var(--primary); font-weight: 700; }
+.suggestion-price { color: var(--primary); font-weight: 700; font-size: 0.95rem; }
 .suggestion-code { color: var(--text-dimmer); font-size: 0.75rem; }
-.search-suggestions::-webkit-scrollbar { width: 6px; }
-.search-suggestions::-webkit-scrollbar-track { background: var(--glass); border-radius: 3px; }
-.search-suggestions::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 3px; }
-.search-suggestions::-webkit-scrollbar-thumb:hover { background: #818cf8; }
 .cart-icon { position: relative; cursor: pointer; font-size: 1.3rem; color: var(--text-main); transition: var(--transition); }
 .cart-icon:hover { color: var(--primary); }
 .admin-link { display: inline-flex; align-items: center; justify-content: center; font-size: 1.3rem; color: var(--text-main); text-decoration: none; transition: var(--transition); margin-left: 1.5rem; }
@@ -254,43 +392,60 @@ body {
 
 /* Search Section */
 .search-section {
-    background: linear-gradient(135deg, rgba(2, 6, 23, 0.8), rgba(2, 6, 23, 0.95));
-    padding: 2rem 0;
-    margin-top: 60px;
+    background: linear-gradient(135deg, rgba(2, 6, 23, 0.9), rgba(2, 6, 23, 0.95));
+    padding: 3rem 0;
     border-bottom: 1px solid var(--glass);
+    animation: slideDown 0.6s ease;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .search-container {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
+    padding: 0 2rem;
 }
 
 .search-box-hero {
-    max-width: 500px;
+    max-width: 600px;
     width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
 }
 
 .search-box-hero input {
     width: 100%;
-    padding: 1rem 1.2rem 1rem 1.5rem;
+    padding: 1.2rem 1.5rem 1.2rem 2rem;
     font-size: 1rem;
-    background: var(--glass-strong);
-    border: 1px solid var(--glass);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1.5px solid var(--glass);
     color: var(--text-main);
-    border-radius: 10px;
+    border-radius: 12px;
     outline: none;
     transition: var(--transition);
+    font-weight: 500;
+}
+
+.search-box-hero input:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(99, 102, 241, 0.5);
 }
 
 .search-box-hero input:focus {
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
-    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15), 0 8px 32px rgba(99, 102, 241, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
 }
 
 .search-box-hero input::placeholder {
     color: var(--text-dimmer);
+    font-weight: 400;
 }
 
 .search-box-hero i {
@@ -298,7 +453,13 @@ body {
     right: 1.5rem;
     color: var(--text-dimmer);
     pointer-events: none;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    transition: var(--transition);
+}
+
+.search-box-hero input:focus ~ i {
+    color: var(--primary);
+    transform: scale(1.1);
 }
 
 /* Hero */
@@ -334,12 +495,40 @@ body {
 
 /* Products Section */
 #products { margin: 6rem auto; padding: 0 2rem; }
-.section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem; flex-wrap: wrap; gap: 1.5rem; }
-.section-header h2 { font-size: 2.5rem; font-weight: 900; }
-.filters { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+/* Section Header with Title & Filters */
+.section-header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 3rem; 
+    flex-wrap: wrap; 
+    gap: 1.5rem;
+    animation: fadeInUp 0.6s ease;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.section-header h2 { 
+    font-size: 2.5rem; 
+    font-weight: 900;
+}
+
+/* Filter Buttons Container */
+.filters { 
+    display: flex; 
+    gap: 1rem; 
+    flex-wrap: wrap;
+    width: auto;
+}
+
+/* Individual Filter Button */
 .filter-btn {
     background: var(--card-bg);
-    border: 1px solid var(--glass);
+    border: 1.5px solid var(--glass);
     color: var(--text-main);
     padding: 0.8rem 1.5rem;
     border-radius: 10px;
@@ -347,27 +536,91 @@ body {
     transition: var(--transition);
     font-weight: 600;
     font-size: 0.9rem;
+    white-space: nowrap;
+    animation: slideUp 0.5s ease backwards;
 }
-.filter-btn:hover { border-color: var(--primary); color: var(--primary); }
+
+/* Stagger animation for each button */
+.filter-btn:nth-child(1) { animation-delay: 0.1s; }
+.filter-btn:nth-child(2) { animation-delay: 0.2s; }
+.filter-btn:nth-child(3) { animation-delay: 0.3s; }
+.filter-btn:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.filter-btn:hover { 
+    border-color: var(--primary); 
+    color: var(--primary);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.15);
+}
+
 .filter-btn.active {
     background: linear-gradient(135deg, var(--primary), #818cf8);
     color: white;
     border-color: var(--primary);
+    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+    transform: translateY(-3px);
 }
 
-/* Product Sections */
-.product-section { margin-bottom: 5rem; }
-.section-title { margin-bottom: 2.5rem; }
-.section-title h3 { font-size: 2rem; font-weight: 900; margin-bottom: 0.5rem; }
-.section-title p { color: var(--text-dim); font-size: 1rem; }
+/* Product Sections - Animate on scroll */
+.product-section {
+    animation: fadeInUp 0.8s ease-out;
+}
 
-/* Product Grid */
-.product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2.5rem; margin-top: 3rem; }
+/* Section Titles - Fade down then up effect */
+.section-title {
+    opacity: 0;
+    animation: fadeInUp 0.7s ease-out forwards;
+}
+
+.section-title h3 {
+    animation: fadeInDown 0.6s ease-out;
+}
+
+.section-title p {
+    animation: fadeInDown 0.7s ease-out 0.2s backwards;
+}
+
+/* Product Grid - Staggered animation for cards */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+/* Product Card - Scale in with stagger */
 .product-card {
-    background: var(--card-bg); border: 1px solid var(--glass);
-    border-radius: 18px; padding: 1.8rem; transition: var(--transition);
-    position: relative; overflow: hidden; display: flex; flex-direction: column;
+    background: var(--card-bg);
+    border: 1px solid var(--glass);
+    border-radius: 18px;
+    padding: 1.8rem;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    animation: scaleIn 0.6s ease-out forwards;
 }
+
+/* Stagger animations for each product card */
+.product-card:nth-child(1) { animation-delay: 0s; }
+.product-card:nth-child(2) { animation-delay: 0.1s; }
+.product-card:nth-child(3) { animation-delay: 0.2s; }
+.product-card:nth-child(4) { animation-delay: 0.3s; }
+.product-card:nth-child(5) { animation-delay: 0.4s; }
+.product-card:nth-child(6) { animation-delay: 0.5s; }
+.product-card:nth-child(7) { animation-delay: 0s; }
+.product-card:nth-child(8) { animation-delay: 0.1s; }
+.product-card:nth-child(9) { animation-delay: 0.2s; }
+.product-card:nth-child(10) { animation-delay: 0.3s; }
+.product-card:nth-child(11) { animation-delay: 0.4s; }
+.product-card:nth-child(12) { animation-delay: 0.5s; }
 .product-card:hover { 
     transform: translateY(-12px); 
     border-color: var(--primary); 
@@ -443,12 +696,53 @@ body {
     font-weight: 700;
 }
 
-/* Promo Banner */
-.promo-banner { background: linear-gradient(135deg, var(--primary), #818cf8); padding: 4rem 2rem; text-align: center; margin: 5rem 0; border-radius: 18px; }
-.promo-content h2 { font-size: 2.5rem; margin-bottom: 1rem; font-weight: 900; }
-.promo-content p { font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.9; }
-.btn-secondary { background: white; color: var(--primary); padding: 1rem 2.5rem; border: none; border-radius: 10px; font-weight: 700; cursor: pointer; transition: var(--transition); font-size: 1rem; }
-.btn-secondary:hover { transform: scale(1.05); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2); }
+/* Promo Banner - Scroll animation */
+.promo-banner { 
+    background: linear-gradient(135deg, var(--primary), #818cf8); 
+    padding: 4rem 2rem; 
+    text-align: center; 
+    margin: 5rem 0; 
+    border-radius: 18px;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.promo-content {
+    opacity: 0;
+    animation: scaleIn 0.8s ease-out forwards;
+}
+
+.promo-content h2 { 
+    font-size: 2.5rem; 
+    margin-bottom: 1rem; 
+    font-weight: 900;
+    animation: fadeInDown 0.7s ease-out;
+}
+
+.promo-content p { 
+    font-size: 1.1rem; 
+    margin-bottom: 2rem; 
+    opacity: 0.9;
+    animation: fadeInUp 0.7s ease-out 0.2s backwards;
+}
+
+.btn-secondary { 
+    background: white; 
+    color: var(--primary); 
+    padding: 1rem 2.5rem; 
+    border: none; 
+    border-radius: 10px; 
+    font-weight: 700; 
+    cursor: pointer; 
+    transition: var(--transition); 
+    font-size: 1rem;
+    animation: scaleIn 0.6s ease-out 0.4s backwards;
+}
+
+.btn-secondary:hover { 
+    transform: scale(1.05); 
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2); 
+}
 
 /* Footer */
 .footer { background: var(--bg-dark-light); border-top: 1px solid var(--glass); padding: 5rem 2rem 2rem; margin-top: 5rem; }
@@ -495,39 +789,85 @@ body {
 
 /* Responsive */
 @media (max-width: 1024px) {
-    .search-box input { width: 150px; }
+    .search-section { padding: 2.5rem 0; }
+    .search-box-hero { max-width: 550px; }
+    .search-box-hero input { font-size: 0.95rem; padding: 1.1rem 1.4rem 1.1rem 1.9rem; }
 }
 
 @media (max-width: 768px) {
     .nav-links { display: none; }
     .nav-dropdown { display: none; }
     .hamburger { display: flex; }
-    .search-section { padding: 1.5rem 1rem; }
-    .search-container { justify-content: center; }
+    .search-section { padding: 2rem 0; }
+    .search-container { justify-content: center; padding: 0 1rem; }
     .search-box-hero { max-width: 100%; }
-    .search-box-hero input { font-size: 0.95rem; padding: 0.9rem 1rem 0.9rem 1.3rem; }
+    .search-box-hero input { font-size: 0.95rem; padding: 1rem 1.2rem 1rem 1.8rem; border-radius: 10px; }
+    .search-box-hero i { right: 1.2rem; font-size: 1.1rem; }
+    /* Improved Products Section Header for tablets - stack on smaller screens */
+    .section-header { 
+        flex-direction: column; 
+        align-items: flex-start; 
+        gap: 1.5rem;
+    }
+    .section-header h2 { font-size: 2rem; }
+    /* Make filters full width and wrap on tablet */
+    .filters { 
+        width: 100%; 
+        justify-content: flex-start;
+    }
+    .filter-btn { 
+        padding: 0.75rem 1.2rem; 
+        font-size: 0.85rem;
+        flex: 0 1 auto;
+    }
     .hero h1 { font-size: 3rem; }
     .hero p { font-size: 1.1rem; }
+    /* Mobile: Stack header vertically and make filters responsive */
+    .section-header { 
+        flex-direction: column; 
+        align-items: stretch; 
+        gap: 1.2rem;
+        margin-bottom: 2rem;
+    }
+    .section-header h2 { 
+        font-size: 1.8rem; 
+        margin: 0;
+    }
+    /* Mobile filters: Grid layout for better spacing */
+    .filters { 
+        width: 100%; 
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+        justify-content: stretch;
+    }
+    .filter-btn { 
+        padding: 0.7rem 1rem; 
+        font-size: 0.8rem;
+        width: 100%;
+        text-align: center;
+    }
+    .product-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1 5%; }
     .product-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.5rem; }
     .cart-sidebar { width: 100%; right: -100%; }
-    .search-suggestions { width: 200px; }
-    .filters { width: 100%; }
-    .filter-btn { flex: 1; min-width: 80px; }
-    .section-header { flex-direction: column; align-items: flex-start; }
+    .search-suggestions { width: 90%; left: 5%; right: 5%; }
     .nav-actions { gap: 1rem; }
 }
 
 @media (max-width: 480px) {
-    .search-section { padding: 1.2rem 0.8rem; }
+    .search-section { padding: 1.5rem 0; }
+    .search-container { padding: 0 1rem; }
     .search-box-hero { max-width: 100%; }
-    .search-box-hero input { font-size: 0.9rem; padding: 0.8rem 1rem 0.8rem 1.2rem; }
-    .search-box { max-width: 140px; }
-    .search-box input { width: 100%; padding: 0.5rem 0.7rem 0.5rem 0.8rem; font-size: 0.8rem; }
-    .search-box input::placeholder { font-size: 0.75rem; }
-    .search-suggestions { width: 140px; }
+    .search-box-hero input { font-size: 0.9rem; padding: 0.9rem 1rem 0.9rem 1.6rem; border-radius: 8px; }
+    .search-box-hero i { right: 1rem; font-size: 1rem; }
+    .search-suggestions { width: 90%; left: 5%; right: 5%; max-height: 250px; }
+    .search-suggestion-item { padding: 0.7rem 0.9rem; font-size: 0.85rem; }
     .product-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem; }
     .section-header h2 { font-size: 1.8rem; }
     .filter-btn { padding: 0.6rem 1rem; font-size: 0.8rem; }
+    .hero { height: 70vh; }
+    .hero h1 { font-size: 2.2rem; }
+    .hero p { font-size: 1rem; }
 }
 
 /* Product Details Modal */
