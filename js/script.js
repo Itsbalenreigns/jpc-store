@@ -25,8 +25,7 @@ const products = [
   { id: 304, code: "DELL-XPS-13", name: "Dell XPS 13", price: 1399, category: "laptop", img: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800" },
   { id: 305, code: "DELL-G15", name: "Dell G15 Gaming", price: 1299, category: "laptop", img: "https://images.unsplash.com/photo-1602080858428-57174f9431cf?w=800" },
 
-  // =========================
-  // 💻 HP
+  // =========================  // 💻 HP
   // =========================
   { id: 401, code: "HP-SPECTRE-X360", name: "HP Spectre x360", price: 1599, category: "laptop", img: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800" },
   { id: 402, code: "HP-ENVY-15", name: "HP Envy 15", price: 1399, category: "laptop", img: "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=800" },
@@ -34,8 +33,7 @@ const products = [
   { id: 404, code: "HP-PAVILION-14", name: "HP Pavilion 14", price: 899, category: "laptop", img: "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=800" },
   { id: 405, code: "HP-ELITEBOOK-840", name: "HP EliteBook 840", price: 1499, category: "laptop", img: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800" },
 
-  // =========================
-  // 💻 LENOVO
+  // =========================  // 💻 LENOVO
   // =========================
   { id: 501, code: "LENOVO-LEGION-5", name: "Lenovo Legion 5", price: 1499, category: "laptop", img: "https://images.unsplash.com/photo-1602080858428-57174f9431cf?w=800" },
   { id: 502, code: "LENOVO-THINKPAD-X1", name: "ThinkPad X1 Carbon", price: 1999, category: "laptop", img: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800" },
@@ -54,22 +52,32 @@ const products = [
   { id: 605, code: "MSI-BRAVO-17", name: "MSI Bravo 17", price: 1599, category: "laptop", img: "https://images.unsplash.com/photo-1602080858428-57174f9431cf?w=800" },
 
   // =========================
+  // 💻 ACER
+  // =========================
+  { id: 701, code: "ACER-NITRO-5", name: "Acer Nitro 5", price: 1299, category: "laptop", img: "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=800" },
+  { id: 702, code: "ACER-SWIFT-3", name: "Acer Swift 3", price: 899, category: "laptop", img: "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=800" },
+  { id: 703, code: "ACER-PREDATOR-TRITON", name: "Acer Predator Triton 16", price: 2299, category: "laptop", img: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=800" },
+
+  // =========================
   // 🖥 DESKTOPS
   // =========================
-  { id: 3, code: "RTX-5090-ULTRA-006", name: "RTX 5090 Ultra PC", price: 4500, category: "desktop", img: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=800" },
   { id: 7, code: "ASUS-ROG-DESK-007", name: "ASUS ROG Desktop", price: 3500, category: "desktop", img: "https://images.unsplash.com/photo-1591488320449-011701bb6704?w=800" },
   { id: 11, code: "MSI-GAMING-DESK-008", name: "MSI Gaming Desktop", price: 3299, category: "desktop", img: "https://images.unsplash.com/photo-1593640495253-23196b27a87f?w=800" },
-  { id: 12, code: "CORSAIR-ICU5K-009", name: "Corsair iCUE 5000X", price: 3799, category: "desktop", img: "https://images.unsplash.com/photo-1616628182509-3d9f5c5d67a4?w=800" },
-  { id: 13, code: "ALIENWARE-R16-010", name: "Alienware Aurora R16", price: 4299, category: "desktop", img: "https://images.unsplash.com/photo-1624705002806-5d72df19c3b3?w=800" },
+  { id: 16, code: "DELL-XPS-DESK-016", name: "Dell XPS Desktop", price: 2999, category: "desktop", img: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=800" },
+  { id: 17, code: "LENOVO-LEGION-DESK-017", name: "Lenovo Legion Desktop", price: 3200, category: "desktop", img: "https://images.unsplash.com/photo-1624705002806-5d72df19c3b3?w=800" },
+  { id: 18, code: "ACER-NITRO-DESK-018", name: "Acer Nitro Desktop", price: 2799, category: "desktop", img: "https://images.unsplash.com/photo-1616628182509-3d9f5c5d67a4?w=800" },
+  { id: 19, code: "MAC-STUDIO-DESK-019", name: "Mac Studio", price: 3999, category: "desktop", img: "https://images.unsplash.com/photo-1593640495253-23196b27a87f?w=800" },
 
   // =========================
   // 🎮 ACCESSORIES
   // =========================
-  { id: 4, code: "LOGITECH-MXM3-011", name: "Logitech MX Master 3", price: 99, category: "accessory", img: "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=800" },
-  { id: 5, code: "STEELSERIES-APEX-012", name: "SteelSeries Apex Pro", price: 199, category: "accessory", img: "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=800" },
-  { id: 8, code: "CORSAIR-K95-013", name: "Corsair K95 Keyboard", price: 229, category: "accessory", img: "https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=800" },
-  { id: 14, code: "RAZER-BASILISK-014", name: "Razer Basilisk V3", price: 69, category: "accessory", img: "https://images.unsplash.com/photo-1613145993487-2ecb2f6a8f2a?w=800" },
-  { id: 15, code: "HYPERX-CLOUD2-015", name: "HyperX Cloud II Headset", price: 99, category: "accessory", img: "https://images.unsplash.com/photo-1585386959984-a415522316e4?w=800" }
+  { id: 4, code: "MOUSE-001", name: "Mouse", brand: "mouse", price: 49, category: "accessory", img: "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=800" },
+  { id: 5, code: "KEYBOARD-002", name: "Keyboard", brand: "keyboard", price: 89, category: "accessory", img: "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=800" },
+  { id: 8, code: "MONITOR-003", name: "Monitor", brand: "monitor", price: 349, category: "accessory", img: "https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=800" },
+  { id: 14, code: "PRINTER-004", name: "Printer", brand: "printer", price: 199, category: "accessory", img: "https://images.unsplash.com/photo-1613145993487-2ecb2f6a8f2a?w=800" },
+  { id: 15, code: "SPEAKERS-005", name: "Speakers", brand: "speakers", price: 129, category: "accessory", img: "https://images.unsplash.com/photo-1585386959984-a415522316e4?w=800" },
+  { id: 20, code: "HEADPHONES-006", name: "Headphones", brand: "headphones", price: 159, category: "accessory", img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800" },
+  { id: 21, code: "USBFLASH-007", name: "USB Flash Drive", brand: "usbflash", price: 29, category: "accessory", img: "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=800" }
 ];
 
 let cart = JSON.parse(localStorage.getItem('TECH_CART')) || [];
@@ -89,14 +97,15 @@ document.addEventListener('DOMContentLoaded', () => {
     renderAllProducts();
     updateCartUI();
     setupEventListeners();
-    initializeScrollAnimations();
     
     // Smooth Loader Fade
     setTimeout(() => {
         const loader = document.getElementById('loader');
         if (loader) {
             loader.style.opacity = '0';
-            setTimeout(() => loader.style.display = 'none', 500);
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 500);
         }
     }, 1000);
 });
@@ -186,51 +195,83 @@ function setupEventListeners() {
             document.getElementById('searchSuggestions').classList.remove('active');
         }
     });
+
+    // Contact form validation controls
+    const contactForm = document.querySelector('.contact-form');
+    const firstNameInput = document.getElementById('firstName');
+    const lastNameInput = document.getElementById('lastName');
+    const phoneInput = document.getElementById('phone');
+
+    const messageInput = document.getElementById('message');
+
+    if (firstNameInput) {
+        firstNameInput.addEventListener('input', filterNameInput);
+    }
+    if (lastNameInput) {
+        lastNameInput.addEventListener('input', filterNameInput);
+    }
+    if (phoneInput) {
+        phoneInput.addEventListener('input', filterPhoneInput);
+    }
+    if (messageInput) {
+        messageInput.addEventListener('input', filterMessageInput);
+    }
+    if (contactForm) {
+        contactForm.addEventListener('submit', handleContactSubmit);
+    }
 }
 
 // ========== SCROLL ANIMATION INITIALIZATION ==========
 // Initialize scroll reveal animations for all elements
 function initializeScrollAnimations() {
-    // Create Intersection Observer for scroll animations
-    const observerOptions = {
-        threshold: 0.1, // Trigger when 10% of element is visible
-        rootMargin: '0px 0px -100px 0px' // Trigger slightly before element enters viewport
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
-            if (entry.isIntersecting) {
-                // Determine animation type based on element type
-                let animationClass = 'animate-fadeInUp'; // Default animation
-
-                if (entry.target.classList.contains('section-title')) {
-                    animationClass = 'animate-fadeInDown';
-                } else if (entry.target.classList.contains('product-card')) {
-                    animationClass = 'animate-scaleIn';
-                } else if (entry.target.classList.contains('filter-btn')) {
-                    animationClass = 'animate-slideUp';
-                } else if (entry.target.classList.contains('promo-banner')) {
-                    animationClass = 'animate-rotateIn';
-                }
-
-                // Apply animation class
-                entry.target.classList.add(animationClass);
-                
-                // Stop observing once animated
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    // Observe all elements that should animate
-    const elementsToAnimate = document.querySelectorAll(
-        '.product-section, .section-title, .product-card, .filter-btn, .promo-banner, .promo-content'
-    );
-
-    elementsToAnimate.forEach((element) => {
-        observer.observe(element);
-    });
+    // Animations disabled: no scroll reveal behavior.
 }
+
+function filterNameInput(e) {
+    e.target.value = e.target.value.replace(/[^A-Za-z\s]/g, '');
+}
+
+function filterPhoneInput(e) {
+    e.target.value = e.target.value.replace(/[^0-9]/g, '');
+}
+
+function filterMessageInput(e) {
+    e.target.value = e.target.value.replace(/[^A-Za-z0-9\s]/g, '');
+}
+
+function handleContactSubmit(e) {
+    e.preventDefault();
+    const firstName = document.getElementById('firstName').value.trim();
+    const lastName = document.getElementById('lastName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    if (!firstName || !lastName || !email || !phone || !message) {
+        showToast('Please complete all fields before submitting.', 'error');
+        return;
+    }
+
+    if (!/^[A-Za-z\s]+$/.test(firstName) || !/^[A-Za-z\s]+$/.test(lastName)) {
+        showToast('Name fields may only contain letters.', 'error');
+        return;
+    }
+
+    if (!/^[0-9]{7,15}$/.test(phone)) {
+        showToast('Phone number must contain digits only.', 'error');
+        return;
+    }
+
+    if (!/^[A-Za-z0-9\s]+$/.test(message)) {
+        showToast('Message may only contain text and numbers.', 'error');
+        return;
+    }
+
+    showToast('Thanks! Your message has been sent.', 'success');
+    e.target.reset();
+}
+
+
 
 // Render all products in sections
 function renderAllProducts() {
@@ -332,25 +373,36 @@ function updateCartUI() {
     const cartItemsContainer = document.getElementById('cart-items-container');
 
     if (cartItemsContainer) {
-        cartItemsContainer.innerHTML = cart.map(item => `
-            <div class="cart-item">
-                <div>
-                    <h4>${item.name}</h4>
-                    
-                    <div class="qty-controls">
-                        <button onclick="decreaseQty(${item.id})">-</button>
-                        <span>${item.qty}</span>
-                        <button onclick="increaseQty(${item.id})">+</button>
+        if (cart.length === 0) {
+            cartItemsContainer.innerHTML = `
+                <div class="empty-cart-message">
+                    <i class="fas fa-shopping-basket"></i>
+                    <h4>Your cart is empty</h4>
+                    <p>Add your favorite gear and accessories to see them here.</p>
+                    <button class="btn-secondary" onclick="closeCartSidebar(); document.getElementById('products').scrollIntoView({ behavior: 'smooth' });">Shop Now</button>
+                </div>
+            `;
+        } else {
+            cartItemsContainer.innerHTML = cart.map(item => `
+                <div class="cart-item">
+                    <div>
+                        <h4>${item.name}</h4>
+                        
+                        <div class="qty-controls">
+                            <button onclick="decreaseQty(${item.id})">-</button>
+                            <span>${item.qty}</span>
+                            <button onclick="increaseQty(${item.id})">+</button>
+                        </div>
+
+                        <p class="price">$${(item.price * item.qty).toLocaleString()}</p>
                     </div>
 
-                    <p class="price">$${(item.price * item.qty).toLocaleString()}</p>
+                    <button onclick="removeFromCart(${item.id})">
+                        <i class="fas fa-trash"></i>
+                    </button>
                 </div>
-
-                <button onclick="removeFromCart(${item.id})">
-                    <i class="fas fa-trash"></i>
-                </button>
-            </div>
-        `).join('');
+            `).join('');
+        }
     }
 
     const total = cart.reduce((acc, i) => acc + (i.price * i.qty), 0);
@@ -561,7 +613,7 @@ function filterBrand(brandFilter) {
     if (categoryBtn) categoryBtn.classList.add('active');
     
     closeCartSidebar();
-    let filtered = allProducts.filter(p => p.category === category && p.name.toLowerCase().includes(brand.toLowerCase()));
+    let filtered = allProducts.filter(p => p.category === category && (p.brand ? p.brand === brand : p.name.toLowerCase().includes(brand.toLowerCase())));
     
     // Show filtered view
     document.getElementById('allProductsView').style.display = 'none';
