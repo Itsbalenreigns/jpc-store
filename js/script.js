@@ -8,7 +8,7 @@ const products = [
   // =========================
   // 💻 ASUS
   // =========================
-  { id: 9, code: "ASUS-ROG-G16-004", name: "ASUS ROG Zephyrus G16", price: 2799, category: "laptop", img: "https://www.notebookcheck.net/fileadmin/Notebooks/News/_nc4/2025-Zephyrus-G16-Photo-261.png?w=800" },
+  { id: 9, code: "ASUS-ROG-G16-004", name: "ASUS ROG Zephyrus G16", price: 2799, category: "laptop", img: "https://sm.pcmag.com/pcmag_au/review/a/asus-rog-z/asus-rog-zephyrus-g16-2024-intel-core-ultra-9_jap3.jpg?w=800" },
   { id: 201, code: "ASUS-TUF-A15", name: "ASUS TUF A15", price: 1399, category: "laptop", img: "https://laptopmedia.com/wp-content/uploads/2023/10/6-2.jpg?w=800" },
   { id: 202, code: "ASUS-ZENBOOK-14", name: "ASUS ZenBook 14", price: 1199, category: "laptop", img: "https://angkortech.info/wp-content/uploads/2025/03/ASUS-Zenbook-14-UX3405-UX3405CA-PZ331W-PONDER-BLUE.jpg?w=800" },
   { id: 203, code: "ASUS-ROG-STRIX-G15", name: "ASUS ROG Strix G15", price: 1899, category: "laptop", img: "https://dlcdnwebimgs.asus.com/files/media/2B37C5BC-FC31-4697-925A-6622E78C5CF9/v2/img/slider5.jpg?w=800" },
