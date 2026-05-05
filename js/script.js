@@ -8,76 +8,76 @@ const products = [
   // =========================
   // 💻 ASUS
   // =========================
-  { id: 9, code: "ASUS-ROG-G16-004", name: "ASUS ROG Zephyrus G16", price: 2799, category: "laptop", img: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=800" },
-  { id: 201, code: "ASUS-TUF-A15", name: "ASUS TUF A15", price: 1399, category: "laptop", img: "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=800" },
-  { id: 202, code: "ASUS-ZENBOOK-14", name: "ASUS ZenBook 14", price: 1199, category: "laptop", img: "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=800" },
-  { id: 203, code: "ASUS-ROG-STRIX-G15", name: "ASUS ROG Strix G15", price: 1899, category: "laptop", img: "https://images.unsplash.com/photo-1602080858428-57174f9431cf?w=800" },
-  { id: 204, code: "ASUS-VIVOBOOK-16", name: "ASUS VivoBook 16", price: 999, category: "laptop", img: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=800" },
-  { id: 205, code: "ASUS-EXPERTBOOK", name: "ASUS ExpertBook B9", price: 1599, category: "laptop", img: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800" },
+  { id: 9, code: "ASUS-ROG-G16-004", name: "ASUS ROG Zephyrus G16", price: 2799, category: "laptop", img: "https://www.notebookcheck.net/fileadmin/Notebooks/News/_nc4/2025-Zephyrus-G16-Photo-261.png?w=800" },
+  { id: 201, code: "ASUS-TUF-A15", name: "ASUS TUF A15", price: 1399, category: "laptop", img: "https://laptopmedia.com/wp-content/uploads/2023/10/6-2.jpg?w=800" },
+  { id: 202, code: "ASUS-ZENBOOK-14", name: "ASUS ZenBook 14", price: 1199, category: "laptop", img: "https://angkortech.info/wp-content/uploads/2025/03/ASUS-Zenbook-14-UX3405-UX3405CA-PZ331W-PONDER-BLUE.jpg?w=800" },
+  { id: 203, code: "ASUS-ROG-STRIX-G15", name: "ASUS ROG Strix G15", price: 1899, category: "laptop", img: "https://dlcdnwebimgs.asus.com/files/media/2B37C5BC-FC31-4697-925A-6622E78C5CF9/v2/img/slider5.jpg?w=800" },
+  { id: 204, code: "ASUS-VIVOBOOK-16", name: "ASUS VivoBook 16", price: 999, category: "laptop", img: "https://m.media-amazon.com/images/I/61mCLTi8uLL._AC_UF894,1000_QL80_.jpg?w=800" },
+  { id: 205, code: "ASUS-EXPERTBOOK", name: "ASUS ExpertBook B9", price: 1599, category: "laptop", img: "https://www.notebookcheck.net/fileadmin/Notebooks/Asus/ExpertBook_B9_B9403CVA-KM0153X/asus-expertbook-b9-oled-b9403-teaser.jpg?w=800" },
 
   // =========================
   // 💻 DELL
   // =========================
-  { id: 6, code: "DELLXPS-15-003", name: "Dell XPS 15", price: 1999, category: "laptop", img: "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=800" },
-  { id: 301, code: "DELL-INSPIRON-14", name: "Dell Inspiron 14", price: 899, category: "laptop", img: "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=800" },
-  { id: 302, code: "DELL-ALIENWARE-M18", name: "Alienware M18", price: 3299, category: "laptop", img: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=800" },
-  { id: 303, code: "DELL-LATITUDE-7440", name: "Dell Latitude 7440", price: 1499, category: "laptop", img: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800" },
-  { id: 304, code: "DELL-XPS-13", name: "Dell XPS 13", price: 1399, category: "laptop", img: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800" },
-  { id: 305, code: "DELL-G15", name: "Dell G15 Gaming", price: 1299, category: "laptop", img: "https://images.unsplash.com/photo-1602080858428-57174f9431cf?w=800" },
+  { id: 6, code: "DELLXPS-15-003", name: "Dell XPS 15", price: 1999, category: "laptop", img: "https://i.rtings.com/assets/products/a7OImoBI/dell-xps-15-2023/design-medium.jpg?format=auto?w=800" },
+  { id: 301, code: "DELL-INSPIRON-14", name: "Dell Inspiron 14", price: 899, category: "laptop", img: "https://i.rtings.com/assets/products/36l7sjB1/dell-inspiron-14-2023/design-medium.jpg?format=auto?w=800" },
+  { id: 302, code: "DELL-ALIENWARE-M18", name: "Alienware M18", price: 3299, category: "laptop", img: "https://i.rtings.com/assets/products/vBFmvcXG/dell-alienware-m18-r2-2024/design-medium.jpg?format=auto?w=800" },
+  { id: 303, code: "DELL-LATITUDE-7440", name: "Dell Latitude 7440", price: 1499, category: "laptop", img: "https://shopflix.co.tz/public/uploads/all/8328381530614c6a8b65c47ac74b0ef5.webp?w=800" },
+  { id: 304, code: "DELL-XPS-13", name: "Dell XPS 13", price: 1399, category: "laptop", img: "https://i.rtings.com/assets/products/HpaqSuR6/dell-xps-13-plus-2022/design-medium.jpg?format=auto?w=800" },
+  { id: 305, code: "DELL-G15", name: "Dell G15 Gaming", price: 1299, category: "laptop", img: "https://www.pcworld.com/wp-content/uploads/2025/04/g15_open_front-100879769-orig.jpg?quality=50&strip=all?w=800" },
 
   // =========================  // 💻 HP
   // =========================
-  { id: 401, code: "HP-SPECTRE-X360", name: "HP Spectre x360", price: 1599, category: "laptop", img: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800" },
-  { id: 402, code: "HP-ENVY-15", name: "HP Envy 15", price: 1399, category: "laptop", img: "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=800" },
-  { id: 403, code: "HP-OMEN-16", name: "HP Omen 16", price: 1899, category: "laptop", img: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=800" },
-  { id: 404, code: "HP-PAVILION-14", name: "HP Pavilion 14", price: 899, category: "laptop", img: "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=800" },
-  { id: 405, code: "HP-ELITEBOOK-840", name: "HP EliteBook 840", price: 1499, category: "laptop", img: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800" },
+  { id: 401, code: "HP-SPECTRE-X360", name: "HP Spectre x360", price: 1599, category: "laptop", img: "https://i.pcmag.com/imagery/reviews/00uwiwERhM15aoADGVjjUUy-1..v1602855952.jpg?w=800" },
+  { id: 402, code: "HP-ENVY-15", name: "HP Envy 15", price: 1399, category: "laptop", img: "https://laptopmedia.com/wp-content/uploads/2017/06/csm_HPEnvy15-as__2__945d0d81c3.jpg?w=800" },
+  { id: 403, code: "HP-OMEN-16", name: "HP Omen 16", price: 1899, category: "laptop", img: "https://static.digit.in/HP-Omen-16-mmain-scaled.jpg?w=800" },
+  { id: 404, code: "HP-PAVILION-14", name: "HP Pavilion 14", price: 899, category: "laptop", img: "https://i.rtings.com/assets/products/IBJQ4UuD/hp-pavilion-plus-14-2023/design-medium.jpg?format=auto?w=800" },
+  { id: 405, code: "HP-ELITEBOOK-840", name: "HP EliteBook 840", price: 1499, category: "laptop", img: "https://laptopmedia.com/wp-content/uploads/2024/10/7-13.jpg?w=800" },
 
   // =========================  // 💻 LENOVO
   // =========================
-  { id: 501, code: "LENOVO-LEGION-5", name: "Lenovo Legion 5", price: 1499, category: "laptop", img: "https://images.unsplash.com/photo-1602080858428-57174f9431cf?w=800" },
-  { id: 502, code: "LENOVO-THINKPAD-X1", name: "ThinkPad X1 Carbon", price: 1999, category: "laptop", img: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800" },
-  { id: 503, code: "LENOVO-IDEAPAD-5", name: "Lenovo IdeaPad 5", price: 899, category: "laptop", img: "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=800" },
-  { id: 504, code: "LENOVO-YOGA-9I", name: "Lenovo Yoga 9i", price: 1499, category: "laptop", img: "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=800" },
-  { id: 505, code: "LENOVO-LEGION-7", name: "Lenovo Legion 7", price: 2199, category: "laptop", img: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=800" },
+  { id: 501, code: "LENOVO-LEGION-5", name: "Lenovo Legion 5", price: 1499, category: "laptop", img: "https://i.rtings.com/assets/products/fsJcinF8/lenovo-legion-5-gen-6-15-2021/design-medium.jpg?format=auto?w=800" },
+  { id: 502, code: "LENOVO-THINKPAD-X1", name: "ThinkPad X1 Carbon", price: 1999, category: "laptop", img: "https://cdn.arstechnica.net/wp-content/uploads/2023/06/IMG_1204.jpeg?w=800" },
+  { id: 503, code: "LENOVO-IDEAPAD-5", name: "Lenovo IdeaPad 5", price: 899, category: "laptop", img: "https://i.rtings.com/assets/products/bvl6rQVy/lenovo-ideapad-5-15-2021/design-medium.jpg?format=auto?w=800" },
+  { id: 504, code: "LENOVO-YOGA-9I", name: "Lenovo Yoga 9i", price: 1499, category: "laptop", img: "https://i.rtings.com/assets/products/T3GAqbBC/lenovo-yoga-9i-14-2021/design-medium.jpg?format=auto?w=800" },
+  { id: 505, code: "LENOVO-LEGION-7", name: "Lenovo Legion 7", price: 2199, category: "laptop", img: "https://www.wepc.com/wp-content/uploads/2022/05/Lenovo-Legion-7-release-date-price-specs-Lenovo-Legion-7i-release-date-.jpg?w=800" },
 
   // =========================
   // 💻 MSI
   // =========================
-  { id: 10, code: "MSI-RAIDER-GE78-005", name: "MSI Raider GE78 HX", price: 2699, category: "laptop", img: "https://images.unsplash.com/photo-1602080858428-57174f9431cf?w=800" },
-  { id: 601, code: "MSI-STEALTH-16", name: "MSI Stealth 16", price: 2399, category: "laptop", img: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=800" },
-  { id: 602, code: "MSI-KATANA-15", name: "MSI Katana 15", price: 1499, category: "laptop", img: "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=800" },
-  { id: 603, code: "MSI-CYBORG-14", name: "MSI Cyborg 14", price: 1299, category: "laptop", img: "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=800" },
-  { id: 604, code: "MSI-TITAN-GT77", name: "MSI Titan GT77", price: 3999, category: "laptop", img: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800" },
-  { id: 605, code: "MSI-BRAVO-17", name: "MSI Bravo 17", price: 1599, category: "laptop", img: "https://images.unsplash.com/photo-1602080858428-57174f9431cf?w=800" },
+  { id: 10, code: "MSI-RAIDER-GE78-005", name: "MSI Raider GE78 HX", price: 2699, category: "laptop", img: "https://cdn.mos.cms.futurecdn.net/sgC2NocFRpDk2ii5W4cveR.jpg?w=800" },
+  { id: 601, code: "MSI-STEALTH-16", name: "MSI Stealth 16", price: 2399, category: "laptop", img: "https://www.notebookcheck.net/fileadmin/Notebooks/MSI/Stealth_16_Studio_A13VG/MSI_29.jpg?w=800" },
+  { id: 602, code: "MSI-KATANA-15", name: "MSI Katana 15", price: 1499, category: "laptop", img: "https://cdn.mos.cms.futurecdn.net/qDMfhQBkyRk49Zj6foZPxM.jpg?w=800" },
+  { id: 603, code: "MSI-CYBORG-14", name: "MSI Cyborg 14", price: 1299, category: "laptop", img: "https://helios-i.mashable.com/imagery/reviews/015v1O7wL42fR6AzPzyDTHG/images-1.fill.size_2000x1125.v1720756155.jpg?w=800" },
+  { id: 604, code: "MSI-TITAN-GT77", name: "MSI Titan GT77", price: 3999, category: "laptop", img: "https://cdn.mos.cms.futurecdn.net/AB2dqYC7fcpEdnDzrWduaP-1920-80.jpg?w=800" },
+  { id: 605, code: "MSI-BRAVO-17", name: "MSI Bravo 17", price: 1599, category: "laptop", img: "https://www.bhphotovideo.com/images/fb/msi_bravo_17_a4ddr_009_ryzen7_4800h_rx5500m_16gb_512_1t_1561520.jpg?w=800" },
 
   // =========================
   // 💻 ACER
   // =========================
-  { id: 701, code: "ACER-NITRO-5", name: "Acer Nitro 5", price: 1299, category: "laptop", img: "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=800" },
-  { id: 702, code: "ACER-SWIFT-3", name: "Acer Swift 3", price: 899, category: "laptop", img: "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=800" },
-  { id: 703, code: "ACER-PREDATOR-TRITON", name: "Acer Predator Triton 16", price: 2299, category: "laptop", img: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=800" },
+  { id: 701, code: "ACER-NITRO-5", name: "Acer Nitro 5", price: 1299, category: "laptop", img: "https://www.wepc.com/wp-content/uploads/2023/09/Acer-Nitro-5-2023-review-featured-image-2.jpg?w=800" },
+  { id: 702, code: "ACER-SWIFT-3", name: "Acer Swift 3", price: 899, category: "laptop", img: "https://i.rtings.com/assets/products/4cveTVA4/acer-swift-3-14-2022/design-medium.jpg?format=auto?w=800" },
+  { id: 703, code: "ACER-PREDATOR-TRITON", name: "Acer Predator Triton 16", price: 2299, category: "laptop", img: "https://www.notebookcheck.net/fileadmin/_processed_/f/b/csm_feature_6c4ed8a5c7.jpg?w=800" },
 
   // =========================
   // 🖥 DESKTOPS
   // =========================
-  { id: 7, code: "ASUS-ROG-DESK-007", name: "ASUS ROG Desktop", price: 3500, category: "desktop", img: "https://images.unsplash.com/photo-1591488320449-011701bb6704?w=800" },
-  { id: 11, code: "MSI-GAMING-DESK-008", name: "MSI Gaming Desktop", price: 3299, category: "desktop", img: "https://images.unsplash.com/photo-1593640495253-23196b27a87f?w=800" },
-  { id: 16, code: "DELL-XPS-DESK-016", name: "Dell XPS Desktop", price: 2999, category: "desktop", img: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=800" },
-  { id: 17, code: "LENOVO-LEGION-DESK-017", name: "Lenovo Legion Desktop", price: 3200, category: "desktop", img: "https://images.unsplash.com/photo-1624705002806-5d72df19c3b3?w=800" },
-  { id: 18, code: "ACER-NITRO-DESK-018", name: "Acer Nitro Desktop", price: 2799, category: "desktop", img: "https://images.unsplash.com/photo-1616628182509-3d9f5c5d67a4?w=800" },
-  { id: 19, code: "MAC-STUDIO-DESK-019", name: "Mac Studio", price: 3999, category: "desktop", img: "https://images.unsplash.com/photo-1593640495253-23196b27a87f?w=800" },
+  { id: 7, code: "ASUS-ROG-DESK-007", name: "ASUS ROG Desktop", price: 3500, category: "desktop", img: "https://www.techpowerup.com/img/12-10-15/asus_rog_tytan_cg8480_01.jpg?w=800"},
+  { id: 11, code: "MSI-GAMING-DESK-008", name: "MSI Gaming Desktop", price: 3299, category: "desktop", img: "https://storage-asset.msi.com/global/picture/image/feature/desktop/meg-trident-x2-14th/images/pcmag-img-xs.jpg?w=800" },
+  { id: 16, code: "DELL-XPS-DESK-016", name: "Dell XPS Desktop", price: 2999, category: "desktop", img: "https://stuff.co.za/wp-content/uploads/2023/02/Dell-pc-5-of-6-scaled.jpg?w=800" },
+  { id: 17, code: "LENOVO-LEGION-DESK-017", name: "Lenovo Legion Desktop", price: 3200, category: "desktop", img: "https://cdn.wccftech.com/wp-content/uploads/2018/06/Wccftech-Lenovo-Legion-Desktop.jpg?w=800" },
+  { id: 18, code: "ACER-NITRO-DESK-018", name: "Acer Nitro Desktop", price: 2799, category: "desktop", img: "https://reviewed-com-res.cloudinary.com/image/fetch/s--cnxuJAeh--/b_white,c_limit,cs_srgb,f_auto,fl_progressive.strip_profile,g_center,q_auto,w_792/https://reviewed-production.s3.amazonaws.com/attachment/d34dc51e8de04d9b/1.png?w=800" },
+  { id: 19, code: "MAC-STUDIO-DESK-019", name: "Mac Studio", price: 3999, category: "desktop", img: "https://i.pcmag.com/imagery/reviews/00PnIqsYVM9Npl8gsVkgDIs-2.fit_lim.size_1050x.jpg?w=800" },
 
   // =========================
   // 🎮 ACCESSORIES
   // =========================
-  { id: 4, code: "MOUSE-001", name: "Mouse", brand: "mouse", price: 49, category: "accessory", img: "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=800" },
-  { id: 5, code: "KEYBOARD-002", name: "Keyboard", brand: "keyboard", price: 89, category: "accessory", img: "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=800" },
-  { id: 8, code: "MONITOR-003", name: "Monitor", brand: "monitor", price: 349, category: "accessory", img: "https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=800" },
-  { id: 14, code: "PRINTER-004", name: "Printer", brand: "printer", price: 199, category: "accessory", img: "https://images.unsplash.com/photo-1613145993487-2ecb2f6a8f2a?w=800" },
-  { id: 15, code: "SPEAKERS-005", name: "Speakers", brand: "speakers", price: 129, category: "accessory", img: "https://images.unsplash.com/photo-1585386959984-a415522316e4?w=800" },
+  { id: 4, code: "MOUSE-001", name: "Mouse", brand: "mouse", price: 49, category: "accessory", img: "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=800" },
+  { id: 5, code: "KEYBOARD-002", name: "Keyboard", brand: "keyboard", price: 89, category: "accessory", img: "https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=800" },
+  { id: 8, code: "MONITOR-003", name: "Monitor", brand: "monitor", price: 349, category: "accessory", img: "https://www.hp.com/content/dam/sites/worldwide/personal-computers/consumer/monitors-accessories/computer-monitors-redesign/monitors-gateway-og-image@2x.jpg?w=800" },
+  { id: 14, code: "PRINTER-004", name: "Printer", brand: "printer", price: 199, category: "accessory", img: "https://cdn.media.amplience.net/i/canon/maxify-gx7050-ambient-reception-03_1920x1080-66d4a17cd389?w=100%&sm=aspect&aspect=16:9&qlt=100&scaleFit=poi&poi=0.4375,0.3888888888888889,0.125,0.2222222222222222&fmt=jpg&fmt.options=interlaced&bg=rgb(255,255,255)?w=800" },
+  { id: 15, code: "SPEAKERS-005", name: "Speakers", brand: "speakers", price: 129, category: "accessory", img: "https://cdn.mos.cms.futurecdn.net/5JBrmoz2f3aZW7dV7XqFjW.jpg?w=800" },
   { id: 20, code: "HEADPHONES-006", name: "Headphones", brand: "headphones", price: 159, category: "accessory", img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800" },
-  { id: 21, code: "USBFLASH-007", name: "USB Flash Drive", brand: "usbflash", price: 29, category: "accessory", img: "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=800" }
+  { id: 21, code: "USBFLASH-007", name: "USB Flash Drive", brand: "usbflash", price: 29, category: "accessory", img: "https://media.rs-online.com/Y0622158-01.jpg?w=800" }
 ];
 
 let cart = JSON.parse(localStorage.getItem('TECH_CART')) || [];
