@@ -298,7 +298,7 @@ function renderProductsGrid(items, gridId) {
             <img src="${p.img}" alt="${p.name}" loading="lazy">
             <h3>${p.name}</h3>
             <p class="price">$${p.price.toLocaleString()}</p>
-            <button onclick="event.stopPropagation(); addToCart(${p.id})">Add to Cart</button>
+            <button onclick="event.stopPropagation(); addToCart(${p.id})"><i class="fas fa-cart-plus"></i> <span>Add</span></button>
         </div>
     `).join('');
 }
@@ -313,7 +313,7 @@ function renderProducts(items) {
             <img src="${p.img}" alt="${p.name}" loading="lazy">
             <h3>${p.name}</h3>
             <p class="price">$${p.price.toLocaleString()}</p>
-            <button onclick="event.stopPropagation(); addToCart(${p.id})">Add to Cart</button>
+            <button onclick="event.stopPropagation(); addToCart(${p.id})"><i class="fas fa-cart-plus"></i> <span>Add</span></button>
         </div>
     `).join('');
 }
