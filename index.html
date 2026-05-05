@@ -161,7 +161,7 @@
     <section class="search-section">
         <div class="container search-container">
             <div class="search-box search-box-hero">
-                <input type="text" id="searchInput" placeholder="Search products by name, price, or code..." title="Search by product name, price range (e.g., 100-500), or product code">
+                <input type="text" id="searchInput" placeholder="Search products by name or code..." title="Search by product name, price range (e.g., 100-500), or product code">
                 <i class="fas fa-search"></i>
                 <div class="search-suggestions" id="searchSuggestions"></div>
             </div>
@@ -169,7 +169,7 @@
     </section>
 
     <!-- Categories -->
-    <!-- <section class="categories container">
+    <section class="categories container">
         <div class="category-card" onclick="filterCategory('laptop')">
             <i class="fas fa-laptop"></i>
             <h3>Laptops</h3>
@@ -182,7 +182,7 @@
             <i class="fas fa-keyboard"></i>
             <h3>Accessories</h3>
         </div>
-    </section> -->
+    </section>
 
     <!-- Products Section -->
     <main class="container" id="products">
@@ -261,26 +261,26 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label for="firstName">First Name</label>
-                            <input type="text" id="firstName" name="firstName" placeholder="Please enter first name..." autocomplete="given-name" pattern="[A-Za-z\s]+" title="Letters only" required>
+                            <input type="text" id="firstName" name="firstName" placeholder="First name..." autocomplete="given-name" pattern="[A-Za-z\s]+" title="Letters only" required>
                         </div>
                         <div class="form-group">
                             <label for="lastName">Last Name</label>
-                            <input type="text" id="lastName" name="lastName" placeholder="Please enter last name..." autocomplete="family-name" pattern="[A-Za-z\s]+" title="Letters only" required>
+                            <input type="text" id="lastName" name="lastName" placeholder="Last name..." autocomplete="family-name" pattern="[A-Za-z\s]+" title="Letters only" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" id="email" name="email" placeholder="Please enter email..." autocomplete="email" required>
+                            <input type="email" id="email" name="email" placeholder="Email Address..." autocomplete="email" required>
                         </div>
                         <div class="form-group">
                             <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" placeholder="Please enter phone number..." inputmode="numeric" pattern="[0-9]{7,15}" title="Digits only" required>
+                            <input type="tel" id="phone" name="phone" placeholder="+(855) 123-456-7897..." inputmode="numeric" pattern="[0-9]{7,15}" title="Digits only" required>
                         </div>
                     </div>
                     <div class="form-group full-width">
                         <label for="message">What do you have in mind</label>
-                        <textarea id="message" name="message" rows="5" placeholder="Please enter your message..." required></textarea>
+                        <textarea id="message" name="message" rows="5" placeholder="Leave your message here..." required></textarea>
                     </div>
                     <button type="submit" class="btn-contact">Submit</button>
                 </form>
