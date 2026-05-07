@@ -261,26 +261,26 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label for="firstName">First Name</label>
-                            <input type="text" id="firstName" name="firstName" placeholder="First name..." autocomplete="given-name" pattern="[A-Za-z\s]+" title="Letters only" required>
+                            <input type="text" id="firstName" name="firstName" placeholder="First name..." autocomplete="given-name" pattern="[A-Za-z\s]+" title="Letters only" oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')" required>
                         </div>
                         <div class="form-group">
                             <label for="lastName">Last Name</label>
-                            <input type="text" id="lastName" name="lastName" placeholder="Last name..." autocomplete="family-name" pattern="[A-Za-z\s]+" title="Letters only" required>
+                            <input type="text" id="lastName" name="lastName" placeholder="Last name..." autocomplete="family-name" pattern="[A-Za-z\s]+" title="Letters only" oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" id="email" name="email" placeholder="Email Address..." autocomplete="email" required>
+                            <input type="email" id="email" name="email" placeholder="Email Address..." autocomplete="email" oninput="this.value = this.value.replace(/[^a-zA-Z0-9@.-]/g, '')" required>
                         </div>
                         <div class="form-group">
                             <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" placeholder="+(855) 123-456-7897..." inputmode="numeric" pattern="[0-9]{7,15}" title="Digits only" required>
+                            <input type="tel" id="phone" name="phone" placeholder="+(855) 123-456-7897..." inputmode="numeric" pattern="[0-9]{7,15}" title="Digits only" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
                         </div>
                     </div>
                     <div class="form-group full-width">
                         <label for="message">What do you have in mind</label>
-                        <textarea id="message" name="message" rows="5" placeholder="Leave your message here..." required></textarea>
+                        <textarea id="message" name="message" rows="5" placeholder="Leave your message here..." oninput="this.value = this.value.replace(/[^a-zA-Z0-9@.-\s]/g, '')" required></textarea>
                     </div>
                     <button type="submit" class="btn-contact">Submit</button>
                 </form>
